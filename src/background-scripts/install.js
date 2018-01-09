@@ -24,7 +24,7 @@ export async function onInstalled( details ) {
     // v5.x 的 defaultApi 的格式是全小写字母，如 youdao baidu google google_cn bing，
     // 但是自 v6.0 起我将它换成了首字母大写的形式：YouDao BaiDu Google GoogleCN Bing，
     // 需要做一次转换
-    // @see https://github.com/lmk123/crx-selection-translate/blob/5.x-master/src/options.html#L69
+    // @see https://github.com/frank0718/crx-selection-douban-book/blob/5.x-master/src/options.html#L69
     // @see https://github.com/lmk123/translation.js/blob/master/lib/translation.js#L150
     items.defaultApi = {
       youdao: 'YouDao',

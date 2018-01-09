@@ -41,7 +41,7 @@ export default {
     inline : false , // 是否为 inline 模式:总是显示,不会移动位置,改变大小或定位
     selection : true , // 是否响应划词事件
     pinned : false , // 设为 pinned 状态，此时不会隐藏翻译按钮&窗口、不会重新定位
-    ignoreChinese : false , // 是否忽略中文
+    ignoreChinese : true , // 是否忽略中文
     // ignoreNumLike : true , // 忽略数字与符号的组成
     ignoreNumLike : false , // 忽略数字与符号的组成 change
 
@@ -224,12 +224,20 @@ function check( st , event , text ) {
       return false;
     }
 
+    // 只匹配数字
+    // if ( /[0-9]+/.test( text ) ) {
+    //   return true ;
+    // } else {
+    //   return false;
+    // }
+
 //     test() 方法用于检测一个字符串是否匹配某个模式.
 // 语法
 // RegExpObject.test(string)
 
-
+    
     /*
+    太复杂 搞不定这个东西。。。。
      重要isbn都是数字
      重要isbn都是数字
      重要isbn都是数字
@@ -244,7 +252,7 @@ function check( st , event , text ) {
       return false;
     }
 
-    return true;
+    
   }
   return false;
 }

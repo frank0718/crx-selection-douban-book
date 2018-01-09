@@ -1,9 +1,9 @@
 ﻿{
-  "name" : "划词翻译" ,
-  "description" : "支持谷歌、百度、有道、必应四大翻译和朗读引擎，可以方便的查看、复制和朗读不同引擎的翻译结果。" ,
+  "name" : "图书豆瓣评分" ,
+  "description" : "根据ISBN获取豆瓣评分" ,
   "manifest_version" : 2 ,
-  "version" : "6.2.1" ,
-  "homepage_url" : "https://github.com/lmk123/crx-selection-translate" ,
+  "version" : "1.0.0" ,
+  "homepage_url" : "https://github.com/frank0718/crx-selection-douban-book" ,
   "content_security_policy" : "script-src 'self' 'unsafe-eval' https://www.google-analytics.com; object-src 'self'" ,
   "incognito": "split",
   "icons" : {
@@ -11,7 +11,7 @@
     "16" : "/logo.png" ,
     "48" : "/logo.png"
   } ,
-  "author" : "Milk Lee <milk.lee@qq.com>" ,
+  "author" : "frank0718" ,
   "permissions" : [
     "<all_urls>" ,
     "contextMenus" ,
@@ -72,7 +72,7 @@
       "suggested_key" : {
         "default" : "Alt+A"
       } ,
-      "description" : "翻译网页中选中的文本"
+      "description" : "获取豆瓣评分"
     }
   } ,
   "minimum_chrome_version" : "29" ,
