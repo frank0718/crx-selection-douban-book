@@ -1,0 +1,195 @@
+<h4>朗读</h4>
+
+<div class="o-group">
+  <div class="checkbox">
+    <label>
+      <input type="checkbox" v-model="options.autoPlay">
+      自动朗读
+    </label>
+
+    <div class="help-block">翻译结果显示后，如果有朗读按钮，就自动朗读。</div>
+  </div>
+</div>
+
+<h4>辅助功能</h4>
+
+<div class="o-group">
+  <div class="checkbox">
+    <label>
+      <input type="checkbox" v-model="options.needCtrl">
+      配合 Ctrl 键使用划词翻译
+    </label>
+
+    <div class="help-block">勾选此选项后，需要先按下 Ctrl
+      键再划词，才会显示翻译结果。如果你是想先划词后再决定翻译与否，你需要使用划词翻译预定义的<a target="_blank" href="https://github.com/lmk123/crx-selection-translate/wiki/使用帮助#快捷键">快捷键</a>。
+    </div>
+  </div>
+  <div class="checkbox">
+    <label>
+      <input type="checkbox" v-model="options.showMenu">
+      将翻译按钮加入右键菜单
+    </label>
+
+    <div class="help-block">勾选后，在<b>选中的文本</b>上单击右键，弹出的菜单内会有“翻译选中文本”的菜单项。</div>
+  </div>
+  <div class="checkbox">
+    <label>
+      <input type="checkbox" v-model="options.showBtn">
+      划词后显示翻译按钮
+    </label>
+
+    <div class="help-block">若勾选此选项，那么划词后不会直接显示翻译结果，而是会显示一个按钮，点击之后才会翻译。</div>
+  </div>
+  <div class="checkbox">
+    <label>
+      <input type="checkbox" v-model="options.autoClipboard">
+      打开翻译盒子时，自动翻译剪切板内的文本
+    </label>
+  </div>
+  <div class="checkbox">
+    <label>
+      <input type="checkbox" v-model="options.pdf">
+      开启 PDF 翻译功能
+    </label>
+
+    <div class="help-block">PDF 翻译是一个实验性的功能，若开启之后出现无法下载文件等问题，请关闭 PDF 翻译功能。</div>
+  </div>
+</div>
+
+<h4>翻译筛选</h4>
+
+<div class="o-group">
+  <div class="checkbox">
+    <label>
+      <input type="checkbox" v-model="options.ignoreChinese">
+      忽略中文
+    </label>
+
+    <div class="help-block">翻译文本里有一个或以上的汉字时，不显示翻译结果。</div>
+  </div>
+  <div class="checkbox">
+    <label>
+      <input type="checkbox" v-model="options.ignoreNumLike">
+      忽略数字与符号组成的文本
+    </label>
+
+    <div class="help-block">如果文本是由<b>数字、点、括号、空格、横线、加号和圆点（即•，多用于密码框）</b>组成的，则忽略，例如 (+012)
+      34567。这一选项会忽略电话号码、整数与小数。
+    </div>
+  </div>
+  <div class="checkbox">
+    <label>
+      <input type="checkbox" v-model="options.disableInEditable">
+      在邮件编辑区域禁用划词翻译
+      <small>v6.0.1 新增</small>
+    </label>
+
+    <div class="help-block">启用此项可以避免 QQ 邮箱或 Outlook 邮箱的邮件末尾被插入一个“译”字。<span class="text-warning">需要重启浏览器使设置生效。</span>
+    </div>
+  </div>
+</div>
+
+<h4>翻译引擎</h4>
+
+<div class="o-group">
+  <p>设置划词翻译时默认使用的翻译引擎。</p>
+  <p>
+    <label class="radio-inline">
+      <input type="radio" name="a" value="YouDao" v-model="options.defaultApi"> 有道翻译
+    </label>
+    <label class="radio-inline">
+      <input type="radio" name="a" value="BaiDu" v-model="options.defaultApi"> 百度翻译
+    </label>
+    <label class="radio-inline">
+      <input type="radio" name="a" value="Bing" v-model="options.defaultApi"> 必应翻译
+    </label>
+    <label class="radio-inline">
+      <input type="radio" name="a" value="Google" v-model="options.defaultApi"> 谷歌翻译
+    </label>
+    <label class="radio-inline">
+      <input type="radio" name="a" value="GoogleCN" v-model="options.defaultApi"> 国内谷歌翻译
+    </label>
+  </p>
+
+  <div class="help-block">
+    <a target="_blank" href="https://github.com/lmk123/crx-selection-translate/wiki/常见问题#谷歌翻译国外与谷歌翻译国内有什么区别我该如何选择">不知道该选择“谷歌翻译(国外)”还是“谷歌翻译(国内)”？</a>另外，默认的翻译引擎可能并不适合你的喜好，你可以对比不同引擎的翻译结果，选择出最适合你的那一个。比如，有道翻译可能更适合想要详细了解英文单词释义的朋友。
+  </div>
+</div>
+
+<h5>有道翻译 API Key</h5>
+
+<div class="o-group">
+  <p class="text-danger">由于有道翻译使用量过大，划词翻译自带的翻译 API Key <strong>经常</strong>会被有道翻译服务器给封禁，导致出现“没有返回有效的翻译结果”的情况，所以请自行<a target="_blank" href="https://github.com/lmk123/crx-selection-translate/wiki/%E7%94%B3%E8%AF%B7%E6%9C%89%E9%81%93%E7%BF%BB%E8%AF%91-API">申请 API Key</a>。</p>
+
+  <table class="table table-striped table-bordered table-condensed" v-if="options.youDaoApi.length">
+    <thead>
+      <tr>
+        <th>序号</th>
+        <th>API key</th>
+        <th>keyfrom</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr v-for="key in options.youDaoApi">
+        <td v-text="$index + 1"></td>
+        <td v-text="key.apiKey"></td>
+        <td v-text="key.keyFrom"></td>
+        <td>
+          <button type="button" @click="options.youDaoApi.splice($index,1)">删除</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <form v-show="showYDApi || !options.youDaoApi.length" @submit.prevent="addYDApi">
+    <label>API key: <input type="text" required v-model="addYouDaoAPI.apiKey"></label>
+    <label>keyfrom: <input type="text" required v-model="addYouDaoAPI.keyFrom"></label>
+    <button type="submit">添加</button>
+    <button type="button" v-show="options.youDaoApi.length" @click="hideYDForm">取消</button>
+  </form>
+  <button type="button" v-else @click="showYDForm">添加有道 API</button>
+</div>
+
+<h4>域名筛选
+  <small>v6.0.0 新增</small>
+</h4>
+
+<div class="o-group">
+  <p>当划词翻译被禁用时，浏览器地址栏右边的图标会添加 <span class="text-danger">off</span> 字样。</p>
+
+  <div class="checkbox">
+    <label>
+      <input type="checkbox" v-model="options.disableSelection">
+      在所有网站中禁用划词翻译
+    </label>
+  </div>
+
+  <div v-show="!options.disableSelection">
+    <p>或者在以这些域名结尾的网站里禁用划词翻译：</p>
+
+    <p class="text-info" v-show="!options.excludeDomains.length">目前，划词翻译在所有网站中都会启用，点击下面的按钮添加一个不启用的网站。</p>
+
+    <ul v-else>
+      <li v-for="domain in options.excludeDomains">{{domain}}
+        <button type="button" class="btn btn-default" @click="options.excludeDomains.splice($index,1)">删除</button>
+      </li>
+    </ul>
+
+    <form v-show="showAdd" @submit.prevent="addExclude">
+      <input type="text" placeholder="输入网站域名，如 baidu.com" required style="width:250px" v-el:domain-input v-model="tmpDomain">
+      <button type="submit">添加</button>
+      <button type="button" @click="cancelAdd">取消</button>
+    </form>
+
+    <p v-else>
+      <button type="button" @click="showAddForm">新增</button>
+    </p>
+
+    <p>匹配规则：如果你添加一条“.com”，那么所有以它结尾的网站如“baidu.com”、“google.com” 都会被禁用划词翻译。</p>
+
+    <p>注意：在一些 Chrome 扩展程序无权访问的标签页里，划词翻译也会被禁用，例如
+      <span class="text-danger">chrome://*</span>、<span class="text-danger">chrome-extension://*</span>、<span class="text-danger">https://chrome.google.com/*</span>
+      等，但你仍然可以通过翻译盒子获取翻译结果。</p>
+  </div>
+</div>

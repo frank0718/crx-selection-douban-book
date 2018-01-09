@@ -1,0 +1,25 @@
+@charset "utf-8";
+
+#wrap {
+  width: 750px;
+  min-height: 542px;
+  padding: 10px;
+}
+
+input[type="checkbox"] {
+  margin-right: 5px;
+}
+
+.radio-inline {
+  margin-right: 5px;
+}
+
+input[type="radio"] {
+  top: -2px;
+}
+
+.nav-tabs {
+  margin-bottom: 10px;
+}
+
+@import "settings/style";
